@@ -52,8 +52,8 @@ public class Page {
 
     public void reloadConfig() {
         FileConfiguration config = plugin.getConfig();
-        next_arrow_name = config.getString("GUI.Previous_Page");
-        previous_arrow_name = config.getString("GUI.Next_Page");
+        next_arrow_name = config.getString("GUI.Previous_Page.Name");
+        previous_arrow_name = config.getString("GUI.Next_Page.Name");
     }
 
     public void nextPage() {
