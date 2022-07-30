@@ -1,0 +1,48 @@
+DataBase:
+  DB_HOST:
+  DB_PORT:
+  DB_DATABASE:
+  DB_USERNAME:
+  DB_PASSWORD:
+
+Config:
+  # 특정 플레이어가 특정 아이템을 허용치 이상 소유하고 있는 것으로 감지되면 그 플레이어에게서는 해당 아이템을 아래 적힌 시간만큼 다시 감지하지 않습니다. 단위는 시간입니다.
+  Detect_Cooldown: 24
+  # 감지된 유저가 있으면 관리자에게 알림 메시지를 주기적으로 보냅니다. 단위는 분 단위입니다.
+  Announcer_Cooldown: 5
+  Detect_Excute_Command:
+    - 'Invsave save [playername]'
+    - 'Invsave save [playername] enderchest'
+  Server_Name: 'Server1'
+
+Message:
+  Period_Announcer: '§4[DD] §c총 §4%Amount%§c개의 버그 의심 기록이 탐지되었습니다. §e/dd gui'
+  New_Announcer: '§4[DD] §c%Item_Name% §7(§c%Amount%§7) §7- §c%Server%, %World%, %Location%§4에 대한 버그 의심 기록이 탐지 되었습니다. §e/dd gui'
+  Add_Success: '§4[DD] §f%Item_Name% %Amount%개를 목록에 추가하였습니다.'
+  Add_Fail_No_Items_In_Your_Hand: '§4[DD] §c손에 든 아이템이 없습니다.'
+  Add_Fail_Already_Registered_Item: '§4[DD] §c이미 등록된 아이템 입니다.'
+  GUI_Clear_Success: '§4[DD] §c감지 기록을 초기화 하였습니다.'
+  Reload_Success: '§4[DD] §fReload Success'
+
+GUI:
+  DD_GUI:
+    Lore:
+      - '%Item_Lore%'
+      - '&7&m----------'
+      - 'Amount: %Amount%'
+      - 'Playername: %Player_Name%'
+      - 'Server: %Server%'
+      - 'Location: %World%, %X%, %Y%, %Z%'
+      - 'Time: %Time%'
+
+  DD_Item:
+    Lore:
+      - '%Item_Lore%'
+      - '&7&m----------'
+      - 'Amount: %Amount%'
+
+  Previous_Page:
+    Name: '&f[&e이전 페이지 &f]'
+
+  Next_Page:
+    Name: '&f[&e다음 페이지 &f]'

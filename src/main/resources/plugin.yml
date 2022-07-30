@@ -1,0 +1,10 @@
+name: CheckItemDuplicate
+version: '${project.version}'
+main: me.nt.checkitemduplicate.CheckItemDuplicate
+api-version: 1.12
+
+commands:
+  dd:
+    description: Duplicate Detect plugin
+    usage: /<command>
+    permission: DuplicateDetect.command.basic
