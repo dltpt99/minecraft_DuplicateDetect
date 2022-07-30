@@ -58,7 +58,7 @@ public class CommandHeader implements CommandExecutor {
                 sender.sendMessage(reload_Success);
                 break;
             case "dbreload":
-                controlDatabase.reconnect(sender);
+                plugin.updateEntities();
                 break;
 
         }
