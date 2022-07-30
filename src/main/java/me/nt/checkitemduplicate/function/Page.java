@@ -30,7 +30,7 @@ public class Page {
     public void showPage() {
         Inventory inv = Bukkit.createInventory(null, 54, "§0DD - " + inv_title + current_page);
         int i =0;
-        for(ItemStack item : item_list[current_page]) {
+        for(ItemStack item : item_list[current_page-1]) {
             inv.setItem(i++, item);
         }
         if(!(current_page==1 && item_list[0].size()<45)) {
