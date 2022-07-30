@@ -1,6 +1,6 @@
 package me.nt.checkitemduplicate.listner;
 
-import me.nt.checkitemduplicate.CheckItemDuplicate;
+import me.nt.checkitemduplicate.DuplicateDetect;
 import me.nt.checkitemduplicate.entity.DetectItemEntity;
 import me.nt.checkitemduplicate.function.ControlDatabase;
 import me.nt.checkitemduplicate.function.Page;
@@ -19,13 +19,13 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.*;
 
 public class MenuControl implements Listener {
-    CheckItemDuplicate plugin;
+    DuplicateDetect plugin;
     ControlDatabase database;
     ChatLisnter chatLisnter;
     ItemStack modify_icon;
     ItemStack delete_icon;
 
-    public MenuControl(CheckItemDuplicate plugin) {
+    public MenuControl(DuplicateDetect plugin) {
         this.plugin = plugin;
         this.database = plugin.getDatabase();
         initDetailIcon();

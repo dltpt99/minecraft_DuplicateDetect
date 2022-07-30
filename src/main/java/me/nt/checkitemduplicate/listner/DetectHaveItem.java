@@ -1,18 +1,14 @@
 package me.nt.checkitemduplicate.listner;
 
-import me.nt.checkitemduplicate.CheckItemDuplicate;
+import me.nt.checkitemduplicate.DuplicateDetect;
 import me.nt.checkitemduplicate.entity.DetectItemEntity;
 import me.nt.checkitemduplicate.entity.DetectedPlayerEntity;
 import me.nt.checkitemduplicate.function.ControlDatabase;
-import org.bukkit.Bukkit;
-import org.bukkit.Warning;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.player.PlayerAttemptPickupItemEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -21,13 +17,13 @@ import java.util.*;
 
 public class DetectHaveItem implements Listener {
 
-    CheckItemDuplicate plugin;
+    DuplicateDetect plugin;
     //    HashMap<ItemStack, Integer> Check_items;
     Set<DetectItemEntity> Check_items;
     ControlDatabase database;
     int cool_down;
 
-    public DetectHaveItem(CheckItemDuplicate plugin) {
+    public DetectHaveItem(DuplicateDetect plugin) {
         this.plugin = plugin;
         Check_items = plugin.getDetectItemList();
         this.database = plugin.getDatabase();

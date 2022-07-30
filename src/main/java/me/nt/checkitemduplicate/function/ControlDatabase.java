@@ -1,6 +1,6 @@
 package me.nt.checkitemduplicate.function;
 
-import me.nt.checkitemduplicate.CheckItemDuplicate;
+import me.nt.checkitemduplicate.DuplicateDetect;
 import me.nt.checkitemduplicate.entity.DetectItemEntity;
 import me.nt.checkitemduplicate.entity.DetectedPlayerEntity;
 import org.bukkit.Bukkit;
@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public class ControlDatabase {
-    CheckItemDuplicate plugin;
+    DuplicateDetect plugin;
     Connection connection;
     String db_host;
     String db_port;
@@ -25,7 +25,7 @@ public class ControlDatabase {
     String db_password;
 
 
-    public ControlDatabase(CheckItemDuplicate plugin) {
+    public ControlDatabase(DuplicateDetect plugin) {
         this.plugin = plugin;
         reload_Config();
     }

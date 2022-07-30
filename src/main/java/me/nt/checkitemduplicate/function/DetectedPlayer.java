@@ -1,6 +1,6 @@
 package me.nt.checkitemduplicate.function;
 
-import me.nt.checkitemduplicate.CheckItemDuplicate;
+import me.nt.checkitemduplicate.DuplicateDetect;
 import me.nt.checkitemduplicate.entity.DetectedPlayerEntity;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -13,12 +13,12 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.*;
 
 public class DetectedPlayer {
-    CheckItemDuplicate plugin;
+    DuplicateDetect plugin;
     ControlDatabase controlDatabase;
     String detected_Server;
     List<String> display_lore;
 
-    public DetectedPlayer(CheckItemDuplicate plugin) {
+    public DetectedPlayer(DuplicateDetect plugin) {
         this.plugin = plugin;
         this.controlDatabase = plugin.getDatabase();
         reload_config();

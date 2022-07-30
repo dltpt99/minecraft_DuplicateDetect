@@ -1,6 +1,6 @@
 package me.nt.checkitemduplicate.function;
 
-import me.nt.checkitemduplicate.CheckItemDuplicate;
+import me.nt.checkitemduplicate.DuplicateDetect;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -17,11 +17,11 @@ public class Page {
     private int current_page;
     final private Player player;
     final private String inv_title;
-    final private CheckItemDuplicate plugin;
+    final private DuplicateDetect plugin;
     private String next_arrow_name;
     private String previous_arrow_name;
 
-    public Page(ArrayList<ItemStack>[] item_list, Player player, String inv_title, CheckItemDuplicate plugin) {
+    public Page(ArrayList<ItemStack>[] item_list, Player player, String inv_title, DuplicateDetect plugin) {
         this.item_list = item_list;
         this.page_size = item_list.length;
         this.current_page = 1;

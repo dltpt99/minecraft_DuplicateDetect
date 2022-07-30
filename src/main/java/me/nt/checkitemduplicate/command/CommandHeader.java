@@ -1,23 +1,22 @@
 package me.nt.checkitemduplicate.command;
 
-import me.nt.checkitemduplicate.CheckItemDuplicate;
+import me.nt.checkitemduplicate.DuplicateDetect;
 import me.nt.checkitemduplicate.function.ControlDatabase;
 import me.nt.checkitemduplicate.function.ControlItem;
 import me.nt.checkitemduplicate.function.DetectedPlayer;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
 public class CommandHeader implements CommandExecutor {
-    CheckItemDuplicate plugin;
+    DuplicateDetect plugin;
     ControlItem controlItem;
     ControlDatabase controlDatabase;
     DetectedPlayer detectedPlayer;
     String reload_Success;
 
-    public CommandHeader(CheckItemDuplicate plugin) {
+    public CommandHeader(DuplicateDetect plugin) {
         this.plugin = plugin;
         this.controlItem = new ControlItem(plugin);
         this.detectedPlayer = new DetectedPlayer(plugin);

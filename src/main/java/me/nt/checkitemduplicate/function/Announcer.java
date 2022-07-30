@@ -1,21 +1,20 @@
 package me.nt.checkitemduplicate.function;
 
-import me.nt.checkitemduplicate.CheckItemDuplicate;
+import me.nt.checkitemduplicate.DuplicateDetect;
 import me.nt.checkitemduplicate.entity.DetectedPlayerEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Announcer {
     Set<DetectedPlayerEntity> detected_Players;
-    CheckItemDuplicate plugin;
+    DuplicateDetect plugin;
     String announce_msg;
     String new_detected_msg;
     int cool_down;
 
-    public Announcer(CheckItemDuplicate plugin, int cool_down) {
+    public Announcer(DuplicateDetect plugin, int cool_down) {
         this.plugin = plugin;
         this.cool_down = cool_down;
         this.detected_Players = plugin.getDetected_Player();

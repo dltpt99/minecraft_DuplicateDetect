@@ -1,6 +1,6 @@
 package me.nt.checkitemduplicate.function;
 
-import me.nt.checkitemduplicate.CheckItemDuplicate;
+import me.nt.checkitemduplicate.DuplicateDetect;
 import me.nt.checkitemduplicate.entity.DetectItemEntity;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -15,14 +15,14 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.*;
 
 public class ControlItem {
-    CheckItemDuplicate plugin;
+    DuplicateDetect plugin;
     String add_Success_msg;
     String add_Fail_No_Items_In_Your_Hand;
     String add_Fail_Already_Registered_Item;
     List<String> display_lore;
     ControlDatabase database;
 
-    public ControlItem(CheckItemDuplicate plugin) {
+    public ControlItem(DuplicateDetect plugin) {
         this.plugin = plugin;
         this.database = this.plugin.getDatabase();
         reloadConfig();

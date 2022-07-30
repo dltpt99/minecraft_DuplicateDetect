@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class CheckItemDuplicate extends JavaPlugin {
+public final class DuplicateDetect extends JavaPlugin {
 
     CommandHeader command;
     MenuControl menuControl;
