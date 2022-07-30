@@ -99,7 +99,7 @@ public class DetectedPlayer {
                     item_per_page[page_index].add(item);
                     i++;
                 }
-                plugin.getPage().put((Player)sender, new Page(item_per_page, (Player) sender, "GUI"));
+                plugin.getPage().put((Player)sender, new Page(item_per_page, (Player) sender, "GUI", plugin));
                 plugin.getPage().get((Player)sender).showPage();
             }
         }.runTask(plugin);

@@ -159,7 +159,7 @@ public class ControlItem {
                     item_per_page[page_index].add(item);
 
                 }
-                plugin.getPage().put((Player)sender, new Page(item_per_page, (Player) sender, "Item"));
+                plugin.getPage().put((Player)sender, new Page(item_per_page, (Player) sender, "Item", plugin));
                 plugin.getPage().get((Player)sender).showPage();
 
             }
