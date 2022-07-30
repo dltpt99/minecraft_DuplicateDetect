@@ -34,15 +34,13 @@ GUI:
       - 'Server: %Server%'
       - 'Location: %World%, %X%, %Y%, %Z%'
       - 'Time: %Time%'
-
   DD_Item:
     Lore:
       - '%Item_Lore%'
       - '&7&m----------'
       - 'Amount: %Amount%'
-
   Previous_Page:
-    Name: '&f[&e이전 페이지 &f]'
+    Name: '§f[§e이전 페이지 §f]'
 
   Next_Page:
-    Name: '&f[&e다음 페이지 &f]'
+    Name: '§f[§e다음 페이지 §f]'
