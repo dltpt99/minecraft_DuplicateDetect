@@ -85,7 +85,7 @@ public final class CheckItemDuplicate extends JavaPlugin {
     public void deleteItemFromList(DetectItemEntity item) {
         database.deleteItemFromList(item);
         this.detect_Item.remove(item);
-        Bukkit.getLogger().info("삭제시도 한 아이템 : "+item);
+        Bukkit.getLogger().info("삭제시도 한 아이템 : "+item.getItem());
     }
 
     private void init_DB() {
