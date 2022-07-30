@@ -74,7 +74,7 @@ public class CommandHeader implements CommandExecutor {
                 "§e/dd gui clear §8- §7감지된 유저 목록을 전부 제거합니다.\n" +
                 "§e/dd item §8- §7등록된 아이템 목록을 확인합니다.\n" +
                 "§e/dd reload §8- §7config를 리로드합니다.\n" +
-                "§e/dd dbreload §8- §7DB를 재연결 합니다. 이미 연결된 경우 무시합니다.\n";
+                "§e/dd dbreload §8- §7DB의 정보를 다시 불러옵니다.\n";
 
         sender.sendMessage(msg);
     }
