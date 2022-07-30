@@ -4,7 +4,6 @@ import me.nt.checkitemduplicate.CheckItemDuplicate;
 import me.nt.checkitemduplicate.entity.DetectItemEntity;
 import me.nt.checkitemduplicate.function.ControlDatabase;
 import me.nt.checkitemduplicate.function.Page;
-import me.nt.checkitemduplicate.function.Serialize;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -12,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -30,7 +28,7 @@ public class MenuControl implements Listener {
     public MenuControl(CheckItemDuplicate plugin) {
         this.plugin = plugin;
         this.database = plugin.getDatabase();
-        initDetailicon();
+        initDetailIcon();
     }
 
     @EventHandler
@@ -38,20 +36,11 @@ public class MenuControl implements Listener {
         if(e.getCurrentItem()==null) return;
         if(!e.getWhoClicked().hasPermission("dd.modify.item")) return;
 
-        if (e.getView().getTitle().contains("§0DD - Item")) {
-            Page page = plugin.getPage().get(e.getWhoClicked());
-            List<ItemStack> iter = page.getItem_list()[page.getCurrent_page()-1];
-            ItemStack item;
-            int i=0;
-
-            e.setCancelled(true);
-        }
-        
         if (e.getView().getTitle().contains("DD - ")) {
             e.setCancelled(true);
 
             if(e.getRawSlot()==48 && e.getCurrentItem().getType() != Material.AIR) {
-                plugin.getPage().get(e.getWhoClicked()).beforePage();
+                plugin.getPage().get(e.getWhoClicked()).previousPage();
                 return;
             }
             if(e.getRawSlot()==50 && e.getCurrentItem().getType() != Material.AIR) {
@@ -60,6 +49,29 @@ public class MenuControl implements Listener {
             }
         } else{
             plugin.getPage().remove(e.getWhoClicked());
+        }
+
+        int rawSlot = e.getRawSlot();
+        if(rawSlot > 44) return;
+
+        if (e.getView().getTitle().contains("§0DD - Item")) {
+            Page page = plugin.getPage().get(e.getWhoClicked());
+            Iterator<DetectItemEntity> iter = plugin.getDetectItemList().stream().sorted(
+                    Comparator.comparing(DetectItemEntity::getDateAsFormatted)
+                    .reversed()).iterator();
+            DetectItemEntity entity;
+            int index_for_page_head= (page.getCurrent_page()-1) * 45;
+            int i=0;
+            int index=0;
+
+            while (iter.hasNext()) {
+                entity = iter.next();
+                if(index_for_page_head>i++) continue;
+                if (index++ == rawSlot) {
+                    openDetailMenu(e, entity.getItem());
+                }
+            }
+            e.setCancelled(true);
         }
 
         if (e.getView().getTitle().equalsIgnoreCase("Item Modify on DD")) {
@@ -78,14 +90,6 @@ public class MenuControl implements Listener {
             e.setCancelled(true);
         }
     }
-
-/*    @EventHandler
-    public void closeInventory(InventoryCloseEvent e) {
-        e.getPlayer().sendMessage("close reason"+e.getEventName());
-        if(e.getInventory().getName().contains("DD - ")) {
-            plugin.getPage().remove(e.getPlayer());
-        }
-    }*/
 
     public void deleteFromList(Player player, ItemStack item) {
         player.sendMessage(ChatColor.RED+"If you want to delete this item from list, Enter the Y or Yes");
@@ -132,7 +136,7 @@ public class MenuControl implements Listener {
         e.getWhoClicked().openInventory(menu);
     }
 
-    public void initDetailicon() {
+    public void initDetailIcon() {
         modify_icon = new ItemStack(Material.EYE_OF_ENDER, 1);
         delete_icon = new ItemStack(Material.REDSTONE_BLOCK, 1);
         ItemMeta modify_meta = modify_icon.getItemMeta();
@@ -189,7 +193,6 @@ class ChatLisnter implements Listener {
         item.setAmount(amount);
         menuControl.setAmount(e.getPlayer(), item);
         menuControl.unregisterChatListner();
-
     }
 
     public void setDelete() {
