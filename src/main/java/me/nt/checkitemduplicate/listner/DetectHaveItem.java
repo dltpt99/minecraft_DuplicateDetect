@@ -125,7 +125,7 @@ public class DetectHaveItem implements Listener {
                 continue;
             }
             if(Duration.between(entity.getDate(), inv_item.getDate()).getSeconds() < cool_down ) {
-                plugin.getLogger().info("같은 플레이어가 같은 아이템으로 " + cool_down + "이내로 탐지되어 기록하지 않음");
+//                plugin.getLogger().info("같은 플레이어가 같은 아이템으로 " + cool_down + "이내로 탐지되어 기록하지 않음");
                 return false;
             }
         }
