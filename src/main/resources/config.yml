@@ -1,9 +1,9 @@
 DataBase:
-  DB_HOST:
-  DB_PORT:
-  DB_DATABASE:
-  DB_USERNAME:
-  DB_PASSWORD:
+  DB_HOST: '192.168.0.100'
+  DB_PORT: '3306'
+  DB_DATABASE: 'CID'
+  DB_USERNAME: 'test'
+  DB_PASSWORD: 'password1234'
 
 Config:
   # 특정 플레이어가 특정 아이템을 허용치 이상 소유하고 있는 것으로 감지되면 그 플레이어에게서는 해당 아이템을 아래 적힌 시간만큼 다시 감지하지 않습니다. 단위는 시간입니다.

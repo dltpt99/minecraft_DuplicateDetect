@@ -1,6 +1,6 @@
-name: DetectDuplicate
+name: DuplicateDetect
 version: '${project.version}'
-main: me.nt.checkitemduplicate.DetectDuplicate
+main: me.nt.checkitemduplicate.DuplicateDetect
 api-version: 1.12
 
 commands:
