@@ -58,13 +58,11 @@ public class Page {
 
     public void nextPage() {
         current_page++;
-        player.closeInventory();
         showPage();
     }
 
     public void previousPage() {
         current_page--;
-        player.closeInventory();
         showPage();
     }
 

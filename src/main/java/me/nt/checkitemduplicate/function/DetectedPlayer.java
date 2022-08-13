@@ -72,10 +72,12 @@ public class DetectedPlayer {
 
                     for (String lore : lores) {
                         if(lore.contains("%Player_Name%")) {
-                            if(plugin.getServer().getPlayer(player.getUuid()) !=null) {
+                            if(Bukkit.getPlayer(player.getUuid()) !=null) {
                                 lore = lore.replaceAll("%Player_Name%", Bukkit.getPlayer(player.getUuid()).getName());
-                            }else {
+                            }else if(Bukkit.getOfflinePlayer(player.getUuid()).getName() != null){
                                 lore = lore.replaceAll("%Player_Name%", Bukkit.getOfflinePlayer(player.getUuid()).getName());
+                            } else {
+                                lore = lore.replaceAll("%Player_Name%", player.getUuid().toString());
                             }
                         }
 

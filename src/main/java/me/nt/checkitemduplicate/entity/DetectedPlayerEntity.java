@@ -13,10 +13,10 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class DetectedPlayerEntity {
-    private UUID uuid;
+    final private UUID uuid;
     private ItemStack item;
-    private int amount;
-    private Location loc;
+    final private int amount;
+    final private Location loc;
     private final String server;
     private final LocalDateTime date;
 
@@ -59,10 +59,6 @@ public class DetectedPlayerEntity {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
     public ItemStack getItem() {
         return item;
     }
@@ -75,16 +71,8 @@ public class DetectedPlayerEntity {
         return amount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
     public Location getLoc() {
         return loc;
-    }
-
-    public void setLoc(Location loc) {
-        this.loc = loc;
     }
 
     public LocalDateTime getDate() {
